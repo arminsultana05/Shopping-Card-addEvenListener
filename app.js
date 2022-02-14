@@ -1,18 +1,24 @@
+// Handle case increas decrease events.... 
 document.getElementById('case-plus').addEventListener('click', function() {
-    updateCase(true);
-
-
-
-})
+    updateCase('case', 59, true);
+});
 document.getElementById('case-minus').addEventListener('click', function() {
 
-    updateCase(false);
+    updateCase('case', 59, false);
+});
+// Handle phone increas decrease event.....
+document.getElementById('phone-plus').addEventListener('click', function() {
+    updateCase('phone', 1219, true);
+
+});
+document.getElementById('phone-minus').addEventListener('click', function() {
+    updateCase('phone', 1219, false);
+
+});
 
 
-})
-
-function updateCase(inCreasing) {
-    const caseInput = document.getElementById('case-number');
+function updateCase(products, price, inCreasing) {
+    const caseInput = document.getElementById(products + '-number');
     let caseNumber = caseInput.value;
     if (inCreasing == true) {
         caseNumber = parseInt(caseNumber) + 1;
@@ -21,8 +27,8 @@ function updateCase(inCreasing) {
 
     }
     caseInput.value = caseNumber;
-    const caseTotal = document.getElementById('case-total');
-    caseTotal.innerText = caseNumber * 59
+    const caseTotal = document.getElementById(products + '-total');
+    caseTotal.innerText = caseNumber * price;
 
 
 
